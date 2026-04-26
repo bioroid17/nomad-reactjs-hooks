@@ -1,7 +1,6 @@
-import { type } from "@testing-library/user-event/dist/type";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-const useClick = (onClick) => {
+export const useClick = (onClick) => {
   const element = useRef();
   useEffect(() => {
     if (typeof onClick !== "function") {
@@ -18,13 +17,3 @@ const useClick = (onClick) => {
   }, []);
   return typeof onClick !== "function" ? undefined : element;
 };
-
-export default function App() {
-  const sayHello = () => console.log("say hello");
-  const title = useClick(sayHello);
-  return (
-    <div className="App">
-      <h1 ref={title}>Hi</h1>
-    </div>
-  );
-}
