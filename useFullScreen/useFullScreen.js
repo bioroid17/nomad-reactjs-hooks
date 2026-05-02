@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
-const useFullScreen = (callback) => {
+export const useFullScreen = (callback) => {
   const element = useRef();
   const runCb = (isFull) => {
     if (callback && typeof callback === "function") {
@@ -35,20 +35,3 @@ const useFullScreen = (callback) => {
   };
   return { element, triggerFullScreen, exitFullScreen };
 };
-
-export default function App() {
-  const onFullScreen = (isFull) => {
-    console.log(isFull ? "We are full" : "We are small");
-  };
-  const { element, triggerFullScreen, exitFullScreen } =
-    useFullScreen(onFullScreen);
-  return (
-    <div className="App" style={{ height: "1000vh" }}>
-      <div ref={element}>
-        <img src="https://i.ibb.co/R6RwNxx/grape.jpg" alt="grape" width="250" />
-        <button onClick={exitFullScreen}>Exit fullscreen</button>
-      </div>
-      <button onClick={triggerFullScreen}>Make fullscreen</button>
-    </div>
-  );
-}
