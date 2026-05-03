@@ -1,6 +1,13 @@
+# Description
+
+React Hook to get your geolocation
+
+## Usage
+
+```js
 import useGeolocation from "@brhooks/use-geolocation";
 
-export default function App() {
+const App = () => {
   const {
     latitude,
     longitude,
@@ -23,4 +30,5 @@ export default function App() {
       <p>{msg}</p>
     </div>
   );
-}
+};
+```
